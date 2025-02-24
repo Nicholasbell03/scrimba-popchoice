@@ -53,7 +53,7 @@ export default function MovieForm({ onSubmit }: MovieFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-6 rounded-lg w-96 flex flex-col space-y-4"
+      className="p-6 rounded-lg w-full max-w-md flex flex-col space-y-4 text-sm sm:text-base"
     >
       {questions.map(question => (
         <QuestionInput

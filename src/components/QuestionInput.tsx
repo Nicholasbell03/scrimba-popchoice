@@ -9,7 +9,7 @@ interface QuestionInputProps {
 export function QuestionInput({ id, label, value, onChange, placeholder }: QuestionInputProps) {
   return (
     <div className="space-y-2">
-      <label className="block text-sm" htmlFor={id}>
+      <label className="block" htmlFor={id}>
         {label}
       </label>
       <textarea
