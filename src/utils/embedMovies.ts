@@ -1,8 +1,8 @@
-import openai from '../lib/openaiClient.js';
-import supabase from '../lib/supabaseClient.js';
-import movies from '../data/movies.js';
+import openai from '@/lib/openaiClient';
+import supabase from '@/lib/supabaseClient';
+import movies from '@/data/movies';
 
-async function embedAndStoreMovies() {
+export async function embedAndStoreMovies() {
     try {
         console.log('Starting to process movies...');
         
@@ -40,9 +40,4 @@ async function embedAndStoreMovies() {
         console.error('Error processing movies:', error);
         throw error;
     }
-}
-
-// Execute the function
-embedAndStoreMovies()
-    .then(() => console.log('Movie embedding process completed'))
-    .catch(error => console.error('Failed to process movies:', error)); 
+} 
