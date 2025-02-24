@@ -3,13 +3,21 @@ interface QuestionInputProps {
   label: string;
   value: string;
   onChange: (value: string) => void;
-  placeholder: string;
+  placeholder?: string;
+  disabled?: boolean;
 }
 
-export function QuestionInput({ id, label, value, onChange, placeholder }: QuestionInputProps) {
+export function QuestionInput({
+  id,
+  label,
+  value,
+  onChange,
+  placeholder,
+  disabled = false
+}: QuestionInputProps) {
   return (
-    <div className="space-y-2">
-      <label className="block" htmlFor={id}>
+    <div className="flex flex-col space-y-2">
+      <label htmlFor={id} className="font-medium">
         {label}
       </label>
       <textarea
@@ -17,9 +25,8 @@ export function QuestionInput({ id, label, value, onChange, placeholder }: Quest
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full min-h-24 p-2 rounded-lg bg-[#3B4877] text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        rows={2}
-        required
+        disabled={disabled}
+        className="p-2 border rounded-md min-h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );

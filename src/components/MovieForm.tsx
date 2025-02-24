@@ -11,6 +11,7 @@ interface MovieFormProps {
     question2: string;
     question3: string;
   }) => void;
+  isLoading?: boolean;
 }
 
 const questions = [
@@ -31,7 +32,7 @@ const questions = [
   }
 ] as const;
 
-export default function MovieForm({ onSubmit }: MovieFormProps) {
+export default function MovieForm({ onSubmit, isLoading = false }: MovieFormProps) {
   const [answers, setAnswers] = React.useState({
     question1: '',
     question2: '',
@@ -63,11 +64,12 @@ export default function MovieForm({ onSubmit }: MovieFormProps) {
           value={answers[question.id]}
           onChange={handleAnswerChange(question.id)}
           placeholder={question.placeholder}
+          disabled={isLoading}
         />
       ))}
 
-      <Button type="submit">
-        Let&apos;s Go
+      <Button type="submit" disabled={isLoading}>
+        {isLoading ? 'Finding Movies...' : 'Let\'s Go'}
       </Button>
     </form>
   );
