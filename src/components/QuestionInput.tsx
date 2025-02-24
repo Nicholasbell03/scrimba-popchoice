@@ -26,7 +26,7 @@ export function QuestionInput({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         disabled={disabled}
-        className="p-2 border rounded-md min-h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="text-black p-2 border rounded-md min-h-24 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );
